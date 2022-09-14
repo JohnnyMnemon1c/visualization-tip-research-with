@@ -13,10 +13,10 @@ st.markdown('''<h1 style='text-align: center; color: black;'
             >Анализ чаевых (Деньги оставленные в благодарность к счету безвозмездо) </h1>''', 
             unsafe_allow_html=True)
 if st.button('Посмотреть картинку с деньгими и людьми'):
-    st.image(".../steamlit1/1200x894_0xac120003_19829363121646005952.jpeg")
+    st.image("вставь картинку")
 
-# path = 'https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv'
-path = ' помести путь к датасету сюда - tips.csv'
+path = 'https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv'
+path = '/Users/borodincempion/visualization-tip-research-with/tips.csv'
 df = pd.read_csv(path, index_col=0)
 
 
