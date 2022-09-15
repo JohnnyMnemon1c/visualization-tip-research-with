@@ -12,11 +12,10 @@ import seaborn as sns
 st.markdown('''<h1 style='text-align: center; color: black;'
             >Анализ чаевых (Деньги оставленные в благодарность к счету безвозмездо) </h1>''', 
             unsafe_allow_html=True)
-if st.button('Посмотреть картинку с деньгими и людьми'):
-    st.image("вставь картинку")
+
 
 path = 'https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv'
-path = '/Users/borodincempion/visualization-tip-research-with/tips.csv'
+#path = 'tips.csv'
 df = pd.read_csv(path, index_col=0)
 
 
@@ -43,7 +42,7 @@ if options == 'Таблица':
     expander_info = st.expander("Информация о данных:")
     expander_info.markdown(
 """
-\n**tips.csv**: Хранит в себе информацию трам пам пам .
+\n**tips.csv**: Хранит в себе информацию о чаевых оставленных в дополнеение к счету  .
 """)
     if st.checkbox('Буду смотреть размер таблицы'):
             shape = st.radio(
@@ -57,7 +56,7 @@ if options == 'Таблица':
 
         number = st.number_input('Сколько строк показать', min_value=1, max_value=df.shape[0])
         st.write('не забудь пролистывать вниз если дабавишь много строк')       
-        st.dataframe(df.loc[:number])
+        st.dataframe(df.iloc[:number])
     if st.checkbox('Показать таблицу по по колоночно так чисто для визуала'):
         number = st.number_input('Сколько колонок показать', min_value=1, max_value=df.shape[1])
         st.dataframe(df[df.columns[:number]])
@@ -145,8 +144,8 @@ if options == 'Пользовательский график':
             sns.barplot(
                 x=df[ax_x], y=df[ax_y], color="goldenrod", ax = ax
             )
-            ax.set_xlabel("day")
-            ax.set_ylabel("total_bill")
+            ax.set_xlabel(ax_x)
+            ax.set_ylabel(ax_y)
             button_box = st.form_submit_button('Построить')
             if button_box:
 
